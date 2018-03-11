@@ -106,8 +106,76 @@ Sur ce spectre, le 0dBm de l'amplitude relative correspond en réalité à -47dB
 pouvons constatier que les deux raies principales attentures sont bel et bien présentes :
 à savoir $|OL+RF = 225 MHz \mbox{ et } |OL-RF| = 5 MHz$. Cependant, nous pouvons constater 
 beaucoup plus de bruit qu'attendu sur le spectre théorique.
-\begin{center}\includegraphics[scale = 0.7]{pic/spectre_reel.png}\\ \end{center}
-\begin{center}\includegraphics[scale = 0.7]{pic/graph_pout.png}\\ \end{center}
+\begin{center}\includegraphics[scale = 0.7]{pic/spectre_reel.png}\i\ \end{center}
 
+
+    Bien sur nous retrouvons également les fréquences énoncés plus haut dans la partie théorique.
+avec :
+\begin{itemize}
+    \item $f_{RF} = 115 MHz$
+    \item $f_{OL} = 110 MHz$ 
+    \item $f_{|OL-RF|} = 5 MHz$
+    \item $f_{|OL+RF|} = 225 MHz$
+    \item $f_{2OL} = 220 MHz$
+    \item $f_{2RF} = 230 MHz$
+\end{itemize}
+Et parmis les fréquences non prises en compte dans le spectre théorique, on retrouve :
+\begin{itemize}
+    \item $f_{|2(RF-OL)-(RF+OL)|} = 215 MHz$
+    \item $f_{|2(OL+RF)-(RF-OL)|} = 445 MHz$ 
+\end{itemize}
+
+\chapter{Mesures caractéristiques}
+\addcontentsline{toc}{chapter}{Mesure caractéristiques}
+\section{Perte de conversion}
+    La perte de conversion est une caractéristique intrasec du composant. Cette mesure
+corespond au nombre de dB perdu lorsque le signal d'entré traverse le composant.
+Sur un mixer, le signal entrant est donc le signal radio et le signal sortant est la
+fréquence image.  
+\begin{center}\includegraphics[scale = 0.3]{pic/perte_conversion.png}\\ \end{center}
+Nous avons donc injecté un signal en entré, en regardant la sortie à l'analyseur de spectre
+et sans oublier de prendre en compte les pertes du aux cables,
+nous pouvons en déduire les pertes de conversion. \\
+En utilisant les données fournis par les mesures précédentes, nous avons donc en entré 0dBm, 
+et en sortie -7 dBm, auquel nous pouvons ajouter 0.14. Ce qui nous donne une
+sortie à -6.86 dBm.
+$$ \mbox{Perte par conversion }= 6.86 dB$$
+
+
+\newpage
+\section{Isolation}
+
+    L'isolation représente la capacité qu'a un signal entrant, à se retrouver sur d'autre
+broches du comportant. Concernant le mixer, il existe deux isolations mesurables : 
+\begin{itemize}
+    \item L'isolation entre RF et OL
+    \item L'isolation entre OL et FI
+\end{itemize}
+Bien sur, plus l'isolation est haute, meilleur est le composant.
+\begin{center}\includegraphics[scale = 0.3]{pic/isolation.png}\\ \end{center}
+
+    Pour mesurer l'isolation RF/OL, nous branchons simplement la broche RF sur un oscillateur, 
+puis la broche OL sur l'analyseur de spectre. Il ne faut pas oublier de charger (50$\Omega$) sans
+quoi la mesure sera faussé.\\
+Donc en prenant en compte la perte du aux cables :\\
+$$Isolation_{RF/OL} = -50dB$$
+Ce qui correspond à la courbe représenté sur la datasheet (pour un signal de 115 MHZ)
+    Pour mesurer l'isolation OL/RF, il suffit de brancher la broche OL sur l'oscillateur, 
+puis la sortie du mixer sur l'analyseur de spectre. Nous n'oublions pas de chercher la
+broche RF.
+$$Isolation_{OL/FI} = -31dB$$
+
+    Bien sur ces valeurs sont à prendre pour les fréquences utilisé et varient plus ou moins
+selon ce paramètre. \\
+\begin{center}
+\includegraphics[scale = 0.45]{pic/isolation1_datasheet.png}
+\includegraphics[scale = 0.45]{pic/isolation2_datasheet.png}
+\end{center}
+
+\section{Point de compression}
+\begin{center}\includegraphics[scale = 0.7]{pic/graph_pout.png}\\ \end{center}
+\section{IP3}
+\chapter{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
 \end{document}
 
