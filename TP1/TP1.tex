@@ -146,7 +146,7 @@ $$ \mbox{Perte par conversion }= 6.86 dB$$
 \section{Isolation}
 
     L'isolation représente la capacité qu'a un signal entrant, à se retrouver sur d'autre
-broches du comportant. Concernant le mixer, il existe deux isolations mesurables : 
+broches du composant. Concernant le mixer, il existe deux isolations mesurables : 
 \begin{itemize}
     \item L'isolation entre RF et OL
     \item L'isolation entre OL et FI
@@ -173,9 +173,38 @@ selon ce paramètre. \\
 \end{center}
 
 \section{Point de compression}
+Les amplificateurs sont sujets à des phénomènes de saturation en puissance sur leur sortie
+C'est à dire que pour de fortes puissances en entrée l'amplificateur perdra toute sa linéarité
+Le point de compression à 1 dB permet de caractériser la limite du fonctionnement linéaire de l'amplificateur. 
+Pour cela on changera la puissance d'entré (RF) en la plaçant à une valeur assez basse, nous sommme partie de 
+-15dBm dans notre cas. Et l'on observe la puissance en sortie sur l'analyseur de spectre, en se plaçant sur la raie OL-RF ou OL+RF.
+Ainsi nous avons procédé à un relevé balayant la puissance de -15dBm à 1dB en observant à chaque crant la sortie.
+Ce qui nous a permis d'obtenir cette courbes:
 \begin{center}\includegraphics[scale = 0.7]{pic/graph_pout.png}\\ \end{center}
+Le cablage est le même que lors de la phase de test on opère juste un changement sur le synthétiseur de la fréquence RF.
+Grâce à la courbes que nous avons déterminé, nous pouvoir alors voir que le point de compression se trouve pour 1dBm en entré.
 \section{IP3}
+L'IP3 est le point d'interception du troisième ordre, il permet da caractériser la linéarité du dispositif étudié.
+On parle d'intermodulation, qui a un coté très nuisible surtout en haute fréquence. Puisqu'il s’agit de l’interaction entre 
+deux fréquences dans un signal qui aboutit à la génération d’une nouvelle fréquence non 
+présente dans le signal d’origine.
+L'IP3 se calcul de la manière suivante : \\
+on se place au niveaux du premier ton et on calcul la différence de puissance qu'il y a par rapport à la raie d'intermodulation 3 (IM3).
+Nous pouvons alors appliquer la formule suivante qui nous permet d'avoir la valeur de l'IP3.
+$$ IP3 = P_{1erTon} + \frac{P_{IMD}}{2} = -35 + \frac{17.5}{2} = -23.75 dBm $$
+La pente des IM3 est de 3dB/dB et l'IP3 correspond en réalité à l'intersection avec la courbe de gain.
+\begin{center}\includegraphics[scale = 0.7]{pic/IP3.png}\\ \end{center}
+    Ainsi nous pouvons élaborer une statégie pour mesurer le point d'IP3 experimentalement :
+Il suffit d'augmenter la puissance d'entrée, tout en mesurant la sortie a l'analyseur de spectre.
+Dès que les puissances d'IM3 et du premier ton sont au meme niveau, on peut être sûr qu'on est sur le point d'IP3.
 \chapter{Conclusion}
+
+    Pour conclure ce TP, nous pouvons dire que même si le mixer génère de nombreuses fréquences parasites, 
+il reste très utile pour traiter le signal radio entrant. De plus, lorsqu'on regarde le spectre en mW, et non plus
+en dBm, il apparait de façon flagrante que les fréquences parasites sont bien en dessous des fréquences
+réèlement utilisés, comme nous pouvons le voir sur le graphique ci-dessous. 
+\begin{center}\includegraphics[scale = 0.7]{pic/spectre_mw.png}\\ \end{center}
+
 \addcontentsline{toc}{chapter}{Conclusion}
 \end{document}
 
