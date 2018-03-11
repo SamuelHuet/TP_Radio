@@ -65,9 +65,49 @@ fréquence de sortie $F_{IF}$ expliqués plus haut. Celui que nous allons utilis
 
 \section{Spectre théorique}
 
-\begin{center}\includegraphics[scale = 0.3]{pic/Spectre_theorique.png}\\ \end{center}
+\begin{center}\includegraphics[scale = 0.25]{pic/Spectre_theorique.png}\\ \end{center}
+
+où : 
+\begin{itemize}
+    \item $f_{1} = |OL-RF|$
+    \item $f_{2} = OL$ 
+    \item $f_{3} = RF$
+    \item $f_{4} = 2OL$
+    \item $f_{5} = |OL+RL|$
+    \item $f_{6} = 2RF$
+\end{itemize}
 
 
+\bigskip
+Dans la pratique, nous pouvons dors et déjà supposer que le spectre sera beaucoup
+plus fournis de part de nombreuses fréquences parasites non prises en compte.
+
+\chapter{Mise en situation}
+\addcontentsline{toc}{chapter}{Mise en situation}
+\section{Cablage}
+
+Avant de cabler notre mixer, et afin de s'assurer de la précision de la mesure, 
+nous pouvant effectuer un petit test au sujet des pertes du aux cables et aux connecteur.
+Pour cela, nous branchons un oscillateur à un analyseur de spectre comme ceci :\\
+\begin{center}\includegraphics[scale = 0.2]{pic/mesure_perte.png}\\ \end{center}
+
+    Ainsi, les pertes du aux coax sont bien visible sur l'analyseur de spectre. On suppose
+la perte du au connecteur du milieu négligeable. D'après cette experience, les pertes sont de
+0.14 dB. Pour la précision des mesures, il faudra alors ajouter 0.14 à toutes ces dernières.
+
+
+    Maintenant que nous avons déterminer les pertes, nous pouvons brancher notre mixer
+comme ceci :
+\begin{center}\includegraphics[scale = 0.2]{pic/cablage.png}\\ \end{center}
+
+
+    L'analyse des fréquences et de leur puissances respective nous donne le spectre suivant.
+Sur ce spectre, le 0dBm de l'amplitude relative correspond en réalité à -47dBm absolue. Nous 
+pouvons constatier que les deux raies principales attentures sont bel et bien présentes :
+à savoir $|OL+RF = 225 MHz \mbox{ et } |OL-RF| = 5 MHz$. Cependant, nous pouvons constater 
+beaucoup plus de bruit qu'attendu sur le spectre théorique.
+\begin{center}\includegraphics[scale = 0.7]{pic/spectre_reel.png}\\ \end{center}
+\begin{center}\includegraphics[scale = 0.7]{pic/graph_pout.png}\\ \end{center}
 
 \end{document}
 
