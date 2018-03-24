@@ -54,10 +54,66 @@ Pour cela, nous utilisons le montage suivant :
 
 Il est ainsi très facile, en visualisant l'analyseur de spectre de derterminer ces pertes.
 Sur notre exemple, avec les cables coaxiaux utlisés, la perte de 4.2 dB, mais cela dépend évidemment du type de
-materiel utilisé..
+materiel utilisé. Cette mesure sera donc à prendre en compte pour chaque relevé.
+
+\section{Gain}
+
+Afin de déterminer sa valeur d'amplification, le but est de le faire fonctionner. La puissance d'entrée étant
+connue, ainsi que les pertes dû aux cables, il suffira alors d'observer la puissance recu sur
+l'analyseur de spectre.
+
+\begin{center}\includegraphics[scale = 0.3]{pic/montage_ampli.png}\\ \end{center}
+
+Nous avons, avec l'oscillateur, généré un signal de 220 MHz à -15 dBm (Attention à ne pas monter trop haut, en 
+effet, si l'amplificateur sature, la mesure est entièrement faussé. -15dBm est une puissance assez basse mais il
+serait prudent de réaliser plusieurs fois la mesure avec des puissances d'entré différentes pour être sûr de 
+la mesure.
+
+A la sortie, nous avons donc 9.6dBm sur la fréquence 220MHz. En ajoutant les 4.2dBm de pertes sur la ligne, nous arrivons
+à 13.8 dBm en sortie. La différence étant de 28.6 dB, nous pouvons en conclure qu'il s'agit là du gain de l'amplificateur.
+Il faut alors la convertir en valeur linéaire :\\
+$$10 \log (x) = 28.6 dB$$
+$$\Rightarrow x = 10^{\frac{28.6}{10}}=724.4 $$
 
 \chapter{WattMètre}
 \addcontentsline{toc}{chapter}{WattMètre}
+
+Le WattMètre permet de nous donner le ROS (Rapport d'onde stationaire), mais aussi le FWD (l'onde incidente) et le
+RFL (l'onde réfléchis). Cependant, il ne fonctionne que dans une certaine gamme de puissance. Ici, la puissance minimal
+à l'entrée est de 0.3W (=24.7dBm). Nous devons alors calculer quelle puissance il faudra rentrer sur l'oscillateur.
+
+\begin{center}\includegraphics[scale = 0.25]{pic/montage_wattmetre.png}\\ \end{center}
+
+Nous avons donc l'équation : $x+28.6-4.2=24.7$. Il faudra alors au moins avoir une puissance de sortie de 0.3dBm.
+Nous avons alors procédé aux 3 mesures que permettait le wattmètre en y branchant différentes charge : 50$\Omega$ ,un court-circuit (0$\Omega$), et un circuit ouvert (impédance infinie).
+Notre ligne étant addapté pour 50$\Omega$, nous nous attendons à vois un ROS faible pour la charge 50$\Omega$. Voici les 
+résultats obtenues :
+
+\begin{center}
+	\begin{tabular}{||p{4cm}||*{4}{c|}|}
+		\hline
+		\bfseries         & 50$\Omega$ & CC              & CO       & Charge inconnue \\
+		\hline
+		\hline
+		\bfseries SWR     & 1.71       & 15.7 ($\infty$) & $\infty$ & 3.74            \\
+		\hline
+		\bfseries FWD (W) & 0.330      & 0.336           & 0.210    & 0.283           \\
+		\hline
+		\bfseries RFL (W) & 0.022      & 0.262           & 0.215    & 0.095           \\
+		\hline
+		\hline
+	\end{tabular}
+\end{center}
+
+Afin de trouver la charge inconnue, il existe deux formules liant charge et SWR :
+\begin{itemize}
+    \item $\mbox{SWR} = \frac{Z_{souce}}{Z_{charge}}$
+    \item $\mbox{SWR} = \frac{Z_{charge}}{Z_{souce}}$
+\end{itemize}
+
+C'est la seconde que l'on va utiliser ici, car elle nous donne la formule suivante : 
+$Z_{charge} = \mbox{SWR} \cdot Z_{source} = 187\Omega$
+Ce qui correspond au code couleur de 150 $\Omega$
 
 \chapter{Mesure d'antennes}
 \addcontentsline{toc}{chapter}{Mesure d'antennes}
