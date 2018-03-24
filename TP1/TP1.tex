@@ -73,7 +73,7 @@ où :
     \item $f_{2} = OL$ 
     \item $f_{3} = RF$
     \item $f_{4} = 2OL$
-    \item $f_{5} = |OL+RL|$
+    \item $f_{5} = |OL+RF|$
     \item $f_{6} = 2RF$
 \end{itemize}
 
@@ -104,7 +104,7 @@ comme ceci :
     L'analyse des fréquences et de leur puissances respective nous donne le spectre suivant.
 Sur ce spectre, le 0dBm de l'amplitude relative correspond en réalité à -47dBm absolue. Nous 
 pouvons constatier que les deux raies principales attentures sont bel et bien présentes :
-à savoir $|OL+RF = 225 MHz \mbox{ et } |OL-RF| = 5 MHz$. Cependant, nous pouvons constater 
+à savoir $|OL+RF| = 225 MHz \mbox{ et } |OL-RF| = 5 MHz$. Cependant, nous pouvons constater 
 beaucoup plus de bruit qu'attendu sur le spectre théorique.
 \begin{center}\includegraphics[scale = 0.7]{pic/spectre_reel.png}\i\ \end{center}
 
@@ -205,6 +205,17 @@ en dBm, il apparait de façon flagrante que les fréquences parasites sont bien 
 réèlement utilisés, comme nous pouvons le voir sur le graphique ci-dessous. 
 \begin{center}\includegraphics[scale = 0.7]{pic/spectre_mw.png}\\ \end{center}
 Cependant il sera quand même préférable d'utiliser un filtre pour eviter toute surprise.
+\chapter{Annexe}
+Voici quelques relevés obtenue lors des tests
+\begin{center}\includegraphics[scale = 0.1]{pic/photo2.jpg}\\ \end{center}
+    Première phase de test, spectre faisant apparaitre les raies OL-RF et OL+RF,
+    ainsi que OL et RF.
+\begin{center}\includegraphics[scale = 0.14]{pic/photo3.jpg}\\ \end{center}
+    Zoom établie sur les raies OL et RF.
+\begin{center}\includegraphics[scale = 0.12]{pic/photo4.jpg}\\ \end{center}
+    Même spectre que précédement avec une précision plus importante.
+\begin{center}\includegraphics[scale = 0.11]{pic/photo1.jpg}\\ \end{center}
+    visualisation du spectre RF seul.
 \addcontentsline{toc}{chapter}{Conclusion}
 \end{document}
 
