@@ -47,7 +47,7 @@
 
 \section{Pertes}
 
-Avant de pouvoir déterminer l'amplification de l'amplificateur, il est nécéssaire de déterminer la pertude dûs aux cables, 
+Avant de pouvoir déterminer l'amplification de l'amplificateur, il est nécéssaire de déterminer la perte dûs aux cables, 
 Pour cela, nous utilisons le montage suivant :
 
 \begin{center}\includegraphics[scale = 0.2]{pic/mesure_perte.png}\\ \end{center}
@@ -59,7 +59,7 @@ materiel utilisé. Cette mesure sera donc à prendre en compte pour chaque relev
 \section{Gain}
 
 Afin de déterminer sa valeur d'amplification, le but est de le faire fonctionner. La puissance d'entrée étant
-connue, ainsi que les pertes dû aux cables, il suffira alors d'observer la puissance recu sur
+connue, ainsi que les pertes dû aux cables, il suffira alors d'observer la puissance reçu sur
 l'analyseur de spectre.
 
 \begin{center}\includegraphics[scale = 0.3]{pic/montage_ampli.png}\\ \end{center}
@@ -67,7 +67,7 @@ l'analyseur de spectre.
 Nous avons, avec l'oscillateur, généré un signal de 220 MHz à -15 dBm (Attention à ne pas monter trop haut, en 
 effet, si l'amplificateur sature, la mesure est entièrement faussé. -15dBm est une puissance assez basse mais il
 serait prudent de réaliser plusieurs fois la mesure avec des puissances d'entré différentes pour être sûr de 
-la mesure.
+la mesure.)
 
 A la sortie, nous avons donc 9.6dBm sur la fréquence 220MHz. En ajoutant les 4.2dBm de pertes sur la ligne, nous arrivons
 à 13.8 dBm en sortie. La différence étant de 28.6 dB, nous pouvons en conclure qu'il s'agit là du gain de l'amplificateur.
@@ -134,7 +134,7 @@ Pour cela, nous avons 2 formules :
 \end{itemize}
 Sachant alors que plus l'antenne est petite, plus elle est adapté aux hautes fréquences, nous pouvons dors et
 déjà supposer que la plus petite est taillée pour la UHF (300MHz - 3000MHz) et la grande, plutot pour la
-VHF (30MHz - 300MHz). Voici donc les mesures de ROS pour les deux antennes ainsi que le la courbe de calcule 
+VHF (30MHz - 300MHz). Voici donc les mesures de ROS pour les deux antennes ainsi que la courbe de calcule 
 du ROS en fonction de l'onde réfléchie et incidente, donnée par cette formule :
 $$\mbox{SWR} = \frac{  1+ \sqrt{\frac{P_{R}}{P_{D}}  }   }{1- \sqrt{\frac{P_{R}}{P_{D}}  }}  $$
 
@@ -206,7 +206,7 @@ qu'elle saura et pourra la rayonner. Dans ce cas ci, le rayonnement est alors co
 \section{Choix de l'antenne}
 
 La bande FM couvre les fréquences allant de 87.5MHz à 108MHz. Elle se trouve donc dans la bande VHF. 
-Bien que la petite antenne aie soit addapté à la fréquence de 150MHz, la grande est mieux taillée 
+Bien que la petite antenne soit addapté à la fréquence de 150MHz, la grande est mieux taillée 
 avec son addaptation à 75MHz et sa taille. Ce qui fait d'elle une antenne parfaite pour la récéption FM.
 
 Nous avond donc plaqué l'antenne sur un plan de masse, puis nous l'avons branché directement à l'entrée de
@@ -244,6 +244,10 @@ nous confortant ainsi dans notre choix.
 \chapter{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 
-[Ecrire la conclusion ici]
-
+    Lors de ce TP nous avons donc appris à calculer les puissance de deux antennes (UHF et VHF) pour pouvoir déterminer
+le ROS et les bandes passantes. Ces mesures nous on fait comprendre que les antennes avaient plusieurs "bandes passante", 
+mais qu'elles ne rayonnent qu'à une seule fréquance. Ce qui veut dire qu'elles n'ont qu'une seule plage de fonctionnement,
+que l'on peut failement déduire grâce à leurs tailles. A la suite de ce TP nous avons essayer d'écouter la radio en utilisant
+une des deux antennes (VHF). Cependant nous avons pas réussi à entendre un seul son venant du synthétiseur de fréquance, même  
+après plusieurs et réglage et nouvelles tentative.
 \end{document}
