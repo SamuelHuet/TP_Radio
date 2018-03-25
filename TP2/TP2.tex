@@ -107,20 +107,75 @@ résultats obtenues :
 
 Afin de trouver la charge inconnue, il existe deux formules liant charge et SWR :
 \begin{itemize}
-    \item $\mbox{SWR} = \frac{Z_{souce}}{Z_{charge}}$
-    \item $\mbox{SWR} = \frac{Z_{charge}}{Z_{souce}}$
+	\item $\mbox{SWR} = \frac{Z_{souce}}{Z_{charge}}$
+	\item $\mbox{SWR} = \frac{Z_{charge}}{Z_{souce}}$
 \end{itemize}
 
 C'est la seconde que l'on va utiliser ici, car elle nous donne la formule suivante : 
 $Z_{charge} = \mbox{SWR} \cdot Z_{source} = 187\Omega$
 Ce qui correspond au code couleur de 150 $\Omega$
 
+
 \chapter{Mesure d'antennes}
 \addcontentsline{toc}{chapter}{Mesure d'antennes}
+
+Afin de determiner les bandes passantes des antennes, nous pouvons mesurer le ROS de chacune d'entre elles
+à différentes fréquances. La où le ROS sera inferieur à 2, nous pourrons conclure que l'antenne est 
+addaptée. Mais avant cela, il serait préférable de déterminer pour quelle gammme de fréquence est taillé chaque antenne. \\
+Pour cela, nous avons 2 formules :
+\begin{itemize}
+	\item $L = \frac{\lambda}{4}$
+	\item $\lambda = \frac{c}{f}$
+\end{itemize}
+Sachant alors que plus l'antenne est petite, plus elle est adapté aux hautes fréquences, nous pouvons dors et
+déjà supposer que la plus petite est taillée pour la UHF (300MHz - 3000MHz) et la grande, plutot pour la
+VHF (30MHz - 300MHz). Voici donc les mesures de ROS pour les deux antennes ainsi que le la courbe de calcule 
+du ROS en fonction de l'onde réfléchie et incidente, donnée par cette formule :
+$$\mbox{SWR} = \frac{  1+ \sqrt{\frac{P_{R}}{P_{D}}  }   }{1- \sqrt{\frac{P_{R}}{P_{D}}  }}  $$
+
+\begin{center}\includegraphics[scale = 0.5]{pic/ROS_petite_antenne.png}\\ \end{center}
+\begin{center}\includegraphics[scale = 0.5]{pic/ROS_grande_antenne.png}\\ \end{center}
+
+On peut voir sur les deux courbes que les ROS mesurés et calculés se suivent avec précision, à l'exeption
+d'un point sur la petite antenne, probablement lié à une erreur de mesure. Cependant, avec des courbes, il
+est difficile de déterminer la fréquence de fonctionnement de ces deux antennes. Les relevés ne sont pas assez 
+précis et nous devons alors utiliser une autre methode.\\
+La seconde méthode consiste à utiliser un analyseur de réseau. Son but est de nous fournir une courbe des
+paramètres S, et ainsi de voir en quels endroits l'antenne est la plus adaptée. Mais ce genre d'appareil nécéssite 
+d'être calibré avant utilisation.
+
+Pour cela, appuyez sur le bouton \textbf{CAL} de l'analyseur, on accède alors au menu de calibration. On selectionne
+alors le port souhait puis, grâce aux standars de calibrations (50$\Omega$, CC et CO) il suffit de suivre les étapes
+dicté par la machine en branchant les différentes charges au bon port. Maintenant que notre analyseur est 
+calibré, nous voila près à déterminer les fréquences.
+
+\section{Petite antenne}
+
+\begin{center}
+	\includegraphics[scale = 0.072]{pic/S_petite.jpg}
+	\includegraphics[scale = 0.06]{pic/Smith_petite.jpg} 
+\end{center}
+
+Nous pouvons constater que les courbes sont ainsi bien plus précises que sur les graphiques précédentes.
+Et nous pouvons répérer des creux importants à 150MHz ainsi qu'à 438MHz. L'antenne ayant plutot une allure 
+UHF, nous allons utiliser la fréquence 438MHz pour les cacules. 
+$$ L = \frac{c}{4\cdot f} = 17cm$$
+
+Cette valeur semble cohérente, l'antenne fait à peu près cette taille. Si en pratique elle semble 
+plus petite, c'est grâce à l'inductance placé à sa base qui permet d'en réduire sa taille. Si elle 
+semble plus petite, c'est que le pied n'est pas compris dans l'antenne.
+
+\section {Grande antenne}
+
+\begin{center}
+	\includegraphics[scale = 0.062]{pic/S_grande.jpg}
+	\includegraphics[scale = 0.065]{pic/Smith_grande.jpg} 
+\end{center}
 
 \chapter{Reception FM}
 \addcontentsline{toc}{chapter}{Reception FM}
 
 \chapter{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
+
 \end{document}
