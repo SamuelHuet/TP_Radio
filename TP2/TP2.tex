@@ -78,6 +78,8 @@ $$\Rightarrow x = 10^{\frac{28.6}{10}}=724.4 $$
 \chapter{WattMètre}
 \addcontentsline{toc}{chapter}{WattMètre}
 
+\section{Puissance}
+
 Le WattMètre permet de nous donner le ROS (Rapport d'onde stationaire), mais aussi le FWD (l'onde incidente) et le
 RFL (l'onde réfléchis). Cependant, il ne fonctionne que dans une certaine gamme de puissance. Ici, la puissance minimal
 à l'entrée est de 0.3W (=24.7dBm). Nous devons alors calculer quelle puissance il faudra rentrer sur l'oscillateur.
@@ -85,6 +87,9 @@ RFL (l'onde réfléchis). Cependant, il ne fonctionne que dans une certaine gamm
 \begin{center}\includegraphics[scale = 0.25]{pic/montage_wattmetre.png}\\ \end{center}
 
 Nous avons donc l'équation : $x+28.6-4.2=24.7$. Il faudra alors au moins avoir une puissance de sortie de 0.3dBm.
+
+\section{Mesures}
+
 Nous avons alors procédé aux 3 mesures que permettait le wattmètre en y branchant différentes charge : 50$\Omega$ ,un court-circuit (0$\Omega$), et un circuit ouvert (impédance infinie).
 Notre ligne étant addapté pour 50$\Omega$, nous nous attendons à vois un ROS faible pour la charge 50$\Omega$. Voici les 
 résultats obtenues :
@@ -139,7 +144,19 @@ $$\mbox{SWR} = \frac{  1+ \sqrt{\frac{P_{R}}{P_{D}}  }   }{1- \sqrt{\frac{P_{R}}
 On peut voir sur les deux courbes que les ROS mesurés et calculés se suivent avec précision, à l'exeption
 d'un point sur la petite antenne, probablement lié à une erreur de mesure. Cependant, avec des courbes, il
 est difficile de déterminer la fréquence de fonctionnement de ces deux antennes. Les relevés ne sont pas assez 
-précis et nous devons alors utiliser une autre methode.\\
+précis et nous devons alors utiliser une autre methode.
+
+\section{Bande passante}
+
+Afin de déterminer la bande passante des deux antennes, nous regardons sur le graphique où la courbre passe
+sous la barre des 2. Nous utilison alors la formule $BP = f_{2}-f_{1}$.\\
+\begin{itemize}
+    \item $BP_{Petite antenne} = 460 - 422 = 38 MHz$
+\end{itemize}
+
+Il est impossible de trouver la bande passante de la grande antenne grâce à cette méthode. Nos relevés
+ne sont pas assez précis et il est alors nécéssaire d'utiliser une methode différente.
+
 La seconde méthode consiste à utiliser un analyseur de réseau. Son but est de nous fournir une courbe des
 paramètres S, et ainsi de voir en quels endroits l'antenne est la plus adaptée. Mais ce genre d'appareil nécéssite 
 d'être calibré avant utilisation.
@@ -172,10 +189,61 @@ semble plus petite, c'est que le pied n'est pas compris dans l'antenne.
 	\includegraphics[scale = 0.065]{pic/Smith_grande.jpg} 
 \end{center}
 
+Sur la plus grande antenne, nous observons des pics à 75MHz ainsi qu'a 236MHz. Cette antenne étant plutot grande,
+nous utiliserons la plus petite des deux fréquences pour en déterminer sa taille :
+$$ L = \frac{c}{4\cdot f} = 1m$$
+Cela correspond à la taille de l'antenne. Bien que plus petite, elle dispose d'une inductance à sa base qui
+la rend plus courte.
+
+Bien que ces antennes soient addaptés pour différentes fréquences couvrant la bande UHF et VHF, elles ne rayonnent 
+pas sur les deux tableaux. En effet, même si une antenne est addaptée pour une fréquence, cela ne veut pas dire 
+qu'elle saura et pourra la rayonner. Dans ce cas ci, le rayonnement est alors convertis en chaleur.\\
+
+
 \chapter{Reception FM}
 \addcontentsline{toc}{chapter}{Reception FM}
 
+\section{Choix de l'antenne}
+
+La bande FM couvre les fréquences allant de 87.5MHz à 108MHz. Elle se trouve donc dans la bande VHF. 
+Bien que la petite antenne aie soit addapté à la fréquence de 150MHz, la grande est mieux taillée 
+avec son addaptation à 75MHz et sa taille. Ce qui fait d'elle une antenne parfaite pour la récéption FM.
+
+Nous avond donc plaqué l'antenne sur un plan de masse, puis nous l'avons branché directement à l'entrée de
+l'analyseur de spectre. Nous distinguons alors 3 raies que voici :
+
+\begin{center}\includegraphics[scale = 0.09]{pic/spectre_FM.jpg}\\ \end{center}
+
+Les fréquences sont donc :
+\begin{itemize}
+	\item 89.6 MHz
+	\item 93.48 MHz
+	\item 97.7 MHz
+\end{itemize}
+
+Afin de valider notre choix d'antenne, nous avons branché les deux, et observé les niveau puissance
+recu.
+
+\begin{center}
+	\begin{tabular}{||p{4cm}||*{3}{c|}|}
+		\hline
+		\bfseries                & 89.6 MHz  & 93.48 MHz & 97.7 MHz  \\
+		\hline
+		\hline
+		\bfseries Grande antenne & -28.3 dBm & -29.5 dBm & -26.7 dBm \\
+		\hline
+		\bfseries Petite antenne & -40.7 dBm & -34.8 dBm & -35 dBm   \\
+		\hline
+		\hline
+	\end{tabular}
+\end{center}
+
+Nous pouvons voir alors très clairement que la plus grande reçois une puissance bien plus élevé,
+nous confortant ainsi dans notre choix.
+
 \chapter{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
+
+[Ecrire la conclusion ici]
 
 \end{document}
