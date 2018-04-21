@@ -35,7 +35,7 @@
     }
     
     \author{Samuel HUET \& Thomas COUTANT}
-    \title{\huge{Analyseur de Réseaux}}
+    \title{\huge{\textbf{Analyseur de Réseaux}}}
     
     \begin{document}
 \maketitle
@@ -45,41 +45,138 @@
 \chapter{Calibrations}
 \addcontentsline{toc}{chapter}{Calibrations}
 
-    Afin de mesurer avec précision les paramètres S de notre système, il est nécéssaire de
+Afin de mesurer avec précision les paramètres S de notre système, il est nécéssaire de
 calibrer l'appareil afin de minimiser au possible les erreurs internes. Mais avant l'étape
 de la calibration, nous pouvons déjà brancher le système et regarder sur quelle gamme de
-fréquence et sur quelle puissance faut il calibrer. une fois cela fait, nous pouvont aller
+fréquence et sur quelle puissance faut il calibrer. 
+
+\begin{center}\includegraphics[scale = 0.8]{pic/S.png}\\ \end{center}
+
+Une fois cela fait, nous pouvont aller
 dans le menu de calibration en appuyant sur \textbf{CAL}, et voici ce que l'on y trouve :
 
 \begin{center}\includegraphics[scale = 0.12]{pic/Calib.jpg}\\ \end{center}
 
+\newpage
+
 \section{Calibrations possibles}
-    Nous pouvons voir 6 boutons qui correspondent en réalité à 6 types de calibration
+Nous pouvons voir 6 boutons qui correspondent en réalité à 6 types de calibration
 différentes :
 \begin{itemize}
-    \item \textbf{FULL TWO PORT} représente une calibration sur les deux ports, donc des 4 paramètres.
-        C'est la calibration la plus longue car elle nécéssite de brancher et débrancher sur les deux ports.
-    \item \textbf{FULL ONE PORT} ne va calibrer uniquement qu'un seul port, afin de calculer les paramètres
-        S11 et S21 (ou S22 et S12)
-    \item \textbf{ONE PATH TWO PORT} Ne calibrera que dans le but de mesurer les paramètres S21 et S12.
-    \item \textbf{TRANS NORM}
-    \item \textbf{REFL NORM}
-    \item \textbf{TRANS AND FEFL NORM}
+	\item \textbf{FULL TWO PORT} représente une calibration sur les deux ports, donc des 4 paramètres.
+	      C'est la calibration la plus longue car elle nécéssite de brancher et débrancher sur les deux ports.
+	\item \textbf{FULL ONE PORT} ne va calibrer uniquement qu'un seul port, afin de calculer les paramètres
+	      S11 et S21 (ou S22 et S12)
+	\item \textbf{ONE PATH TWO PORT} Ne calibrera que dans le but de mesurer les paramètres S21 et S12.
+	\item \textbf{TRANS NORM} ???????
+	\item \textbf{REFL NORM} ???????
+	\item \textbf{TRANS AND FEFL NORM} ???????
+\end{itemize}
+Pour nos mesures, nous avons utilisé la calibration \textbf{FULL TWO PORT} afin
+d'analyser le plus de paramètres possible.  
+
+\section{Connecteur}
+
+Avant de se lancer dans une quelconque manipulation, faisons un petit tour des connecteurs
+courants. Dans l'ordre d'apparition, de gauche à droite, nous avons :
+\begin{itemize}
+	\item Le connecteur \textbf{N}. C'est sur celui-ci que débouchent les ports 1 et 2 de l'analyseur
+	\item Le connecteur \textbf{BNC}. Facilement repérable de par sa connecteur en bayonette.
+	\item Le connecteur \textbf{SMA}. Plutot petit, il s'addapte bien aux modules (coupleur, mixer, etc). Son
+	      composant isolant est en téflon.
+	\item Le connectuer \textbf{K}. Ce connecteur est très comparable au SMA, à la seule différence près
+	      que sa matière isolante est l'air.
 \end{itemize}
 
-    Pour nos mesures, nous avons utilisé la calibration \textbf{FULL TWO PORT} afin
-d'analyser le plus de paramètres possible.  
+\begin{center}
+	\includegraphics[scale = 0.9]{pic/N.jpg}
+	\includegraphics[scale = 0.9]{pic/BNC.jpg}
+	\includegraphics[scale = 0.4]{pic/SMA.jpg}
+\end{center}
 
 \chapter{Mesures des filtres}
 \addcontentsline{toc}{chapter}{Mesures des filtres}
 
+\section{Cablage}
+
+\begin{center}\includegraphics[scale = 0.2]{pic/Cablage_filtre.png}\\ \end{center}
+
+\section{Passe bas}
+
+\begin{center}\includegraphics[scale = 0.25]{pic/parametre_passe_bas.png}\\ \end{center}
+
+\section{Passe haut}
+
+\begin{center}\includegraphics[scale = 0.25]{pic/parametre_passe_haut.png}\\ \end{center}
+
 \chapter{Association des filtres}
 \addcontentsline{toc}{chapter}{Association des filtres}
+
+\section{Cablage}
+
+\begin{center}\includegraphics[scale = 0.2]{pic/Cablage_filtre2.png}\\ \end{center}
+
+\section{Mesures}
+
+\begin{center}\includegraphics[scale = 0.25]{pic/parametre_passe_bande.png}\\ \end{center}
 
 \chapter{Diviseur de puissance}
 \addcontentsline{toc}{chapter}{Diviseur de puissance}
 
-\chapter{Coupleur}
-\addcontentsline{toc}{chapter}{Coupleur}
+\begin{center}\includegraphics[scale = 0.2]{pic/DP.png}\\ \end{center}
+
+\section{Transmission \& Adaptation}
+
+\subsection{Cablage}
+\begin{center}
+	\includegraphics[scale = 0.15]{pic/DPS1.png}
+	\includegraphics[scale = 0.15]{pic/DPS2.png}
+\end{center}
+
+\subsection{Mesures}
+\begin{center}
+	\includegraphics[scale = 0.25]{pic/S11_S21_DPS1.png} \\
+	\includegraphics[scale = 0.25]{pic/S22_S12_DPS1.png}
+\end{center}
+
+\section{Isolation}
+\subsection{Cablage}
+
+\begin{center}
+	\includegraphics[scale = 0.15]{pic/DP12.png} \\\end{center}
+
+\subsection{Mesures}
+\begin{center}\includegraphics[scale = 0.25]{pic/Isolation_DP.png}\\ \end{center}
+
+\chapter{Coupleur directif}
+\addcontentsline{toc}{chapter}{Coupleur directif}
+\begin{center}\includegraphics[scale = 0.17]{pic/CD.png}\\ \end{center}
+
+\section{Transmission}
+\subsection{Cablage}
+\begin{center}\includegraphics[scale = 0.17]{pic/CDIO.png}\\ \end{center}
+
+\subsection{Mesures}
+\begin{center}
+	\includegraphics[scale = 0.25]{pic/S11_CDIO.png} \\
+	\includegraphics[scale = 0.25]{pic/S22_CDIO.png}
+\end{center}
+
+\section{Couplage}
+\subsection{Cablage}
+\begin{center}\includegraphics[scale = 0.17]{pic/CDIC.png}\\ \end{center}
+
+\subsection{Mesures}
+\begin{center}\includegraphics[scale = 0.25]{pic/Couplage_CD.png} \\\end{center}
+
+\section{Isolation}
+\subsection{Cablage}
+\begin{center}\includegraphics[scale = 0.17]{pic/CDOP.png}\\ \end{center}
+
+\subsection{Mesures}
+\begin{center}\includegraphics[scale = 0.25]{pic/Isolation_CD.png} \\\end{center}
+
+\chapter{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
 
 \end{document}
