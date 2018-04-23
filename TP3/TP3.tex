@@ -145,7 +145,10 @@ Pour S22 nous avons une impédence de 28,97R+j7,12 à 147,992MHz.
 \section{Cablage}
 
 \begin{center}\includegraphics[scale = 0.2]{pic/Cablage_filtre2.png}\\ \end{center}
-
+Pour l'association des filtres nous avons juste brancher les deux filtre ensemble. 
+Le passe haut et le passe bas, ce qui devrait créer un passe bande. Il ne restera plus
+qu'à trouver sont type.
+\newpage
 \section{Mesures}
 
 \begin{center}\includegraphics[scale = 0.25]{pic/parametre_passe_bande.png}\\ \end{center}
@@ -154,12 +157,12 @@ La bande passante à -40dB est de 226,681MHz (91,724MHz-318,405MHz). Lors des me
 le passe bas et le passe haut nous n'avons décelé aucune ondulation. Ainsi il semble normal 
 de ne toruver aucune ondulation pour le passe bande. Puisqu'il est composé du passe haut et
 du passe bas étudier précédement.
-Les pertes d'insertions sont quant-à-elle faible puisque l'on est à -0.75dB.
-
-
-
+Les pertes d'insertions sont quant-à-elle faible puisque l'on est à -0.75dB, en prenant compte
+la calibration à bien été faite et minimise la perte liée au cable et au connecteur.
+Toute ces mesures sont facilement réalisable grâce à rfsim99 et on pour but de déterminer
+le type, la famille du filtre butterworth ou tchebychev.\\
 Ce filtre est donc un filtre passe bande butterworth, on peut le remarquer grâce aux pentes 
-qui ne sont pas raide et ene l'absence d'ondulation. 
+qui ne sont pas raide et en l'absence d'ondulation. 
 
 
 \chapter{Diviseur de puissance}
@@ -172,15 +175,19 @@ qui ne sont pas raide et ene l'absence d'ondulation.
 \subsection{Cablage}
 \begin{center}
 	\includegraphics[scale = 0.15]{pic/DPS1.png}
-	\includegraphics[scale = 0.15]{pic/DPS2.png}
+      \includegraphics[scale = 0.15]{pic/DPS2.png}
 \end{center}
-
+Tout port qui n'est pas relié à l'analyseur sera brancher à une charge de 50ohm.
+\newpage
 \subsection{Mesures}
 \begin{center}
-	\includegraphics[scale = 0.25]{pic/S11_S21_DPS1.png} \\
-	\includegraphics[scale = 0.25]{pic/S22_S12_DPS1.png}
+	\includegraphics[scale = 0.25]{pic/div_ps1.png} \\
+	\includegraphics[scale = 0.25]{pic/div_ps2.png}
 \end{center}
-
+On peut donc voir respectivement ci-dessus, le diviseur de puissance branché de :
+S vers 1 et S vers 2. Le composant étant symetrique et passif il est normal de retrouver
+exactement la même chose pour les deux. A savoir une atténuation de 3dB parfaitement linéaire
+à partir de 4MHz avec une bonne adaptation de -32dB.
 \section{Isolation}
 \subsection{Cablage}
 
@@ -188,7 +195,9 @@ qui ne sont pas raide et ene l'absence d'ondulation.
 	\includegraphics[scale = 0.15]{pic/DP12.png} \\\end{center}
 
 \subsection{Mesures}
-\begin{center}\includegraphics[scale = 0.25]{pic/Isolation_DP.png}\\ \end{center}
+\begin{center}\includegraphics[scale = 0.25]{pic/isolation_dp12.png}\\ \end{center}
+On peut voir que l'isolation (en rouge) est suffisante entre le port 1 et 2 puisque on se trouve systématiquement
+en dessous de l'adaptation (en bleu)
 
 \chapter{Coupleur directif}
 \addcontentsline{toc}{chapter}{Coupleur directif}
@@ -197,28 +206,41 @@ qui ne sont pas raide et ene l'absence d'ondulation.
 \section{Transmission}
 \subsection{Cablage}
 \begin{center}\includegraphics[scale = 0.17]{pic/CDIO.png}\\ \end{center}
-
+De même que pour le diviseur de puissance, lors de nos tests tout port qui n'est pas branché
+à l'analyseur sera chargé à 50ohm.
+\newpage
 \subsection{Mesures}
-\begin{center}
-	\includegraphics[scale = 0.25]{pic/S11_CDIO.png} \\
-	\includegraphics[scale = 0.25]{pic/S22_CDIO.png}
-\end{center}
-
+\begin{center}\includegraphics[scale = 0.25]{pic/cdio.png} \\ \end{center}
+A l'aide de cette mesure on peut voir que une fois le système adapté (partie droite à -30dB), nous 
+n'avons aucune perte du signal entre l'entrée et la sortie. Puisque l'on retrouve une transmission à
+0dB dans cette partie.
 \section{Couplage}
 \subsection{Cablage}
 \begin{center}\includegraphics[scale = 0.17]{pic/CDIC.png}\\ \end{center}
-
+De même que précédement tout port vide sera chargé.
+\newpage 
 \subsection{Mesures}
-\begin{center}\includegraphics[scale = 0.25]{pic/Couplage_CD.png} \\\end{center}
-
+\begin{center}\includegraphics[scale = 0.25]{pic/cdic.png}\\\end{center}
+Sur ce graphique on s'aperçoit que l'orsque le signal est addapté (-30dB) au alentour de 4MHz.
+La transmission se stabilise à -20dB. Ainsi on s'apperçoit que le signal couplé n'est qu'une petit
+portion du signal d'entrée.
 \section{Isolation}
 \subsection{Cablage}
 \begin{center}\includegraphics[scale = 0.17]{pic/CDOP.png}\\ \end{center}
-
+De même que précédement tout port vide sera chargé.
+\newpage
 \subsection{Mesures}
-\begin{center}\includegraphics[scale = 0.25]{pic/Isolation_CD.png} \\\end{center}
-
+\begin{center}\includegraphics[scale = 0.25]{pic/cdop.png} \\\end{center}
+Lorsque le système est adapté (courbe bleu a -30dB). On obtient un signal de transmission entre 
+de -60dB entre la sortie et le Cpl (voir schèma). Cette transmission (courbe rouge) se trouve 
+toujours en dessous de l'adaptation et influe au même moment. 
 \chapter{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
-
+Lors de ce TP nous avons appris à nous servir de l'analyseur de réseaux. Grâce à cette appareil
+nous avons pû étudier différents filtres, et déterminer leurs types (tchebychev ou butterworth). 
+Puisuqe en effet de part la lecture des paraèmtres S, il est plus facil d'étudier en profondeur les 
+caractéristique des objets étudier.
+Nous avons ensuite étudier un diviseur de puissance et un coupleur directif. Afin de déterminer leurs
+caractéristique.
+A noté que tout ces composants sont passsif on retrouve donc les même signaux sur S12 et S21.
 \end{document}
