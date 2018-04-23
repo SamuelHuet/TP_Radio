@@ -70,7 +70,7 @@ différentes :
 	\item \textbf{ONE PATH TWO PORT} Ne calibrera que dans le but de mesurer les paramètres S21 et S12.
 	\item \textbf{TRANS NORM} ???????
 	\item \textbf{REFL NORM} ???????
-	\item \textbf{TRANS AND FEFL NORM} ???????
+	\item \textbf{TRANS AND REFL NORM} ???????
 \end{itemize}
 Pour nos mesures, nous avons utilisé la calibration \textbf{FULL TWO PORT} afin
 d'analyser le plus de paramètres possible.  
@@ -104,10 +104,40 @@ courants. Dans l'ordre d'apparition, de gauche à droite, nous avons :
 \section{Passe bas}
 
 \begin{center}\includegraphics[scale = 0.25]{pic/parametre_passe_bas.png}\\ \end{center}
+En rouge nous avons la transmission (S12) et en bleu l'adaptation(S11). On remarque donc facilement que nous avons
+à faire à un filtre passe bas. Grâce au logiciele rfsim99 on peut se déplacér librement sur les courbes.
+on obtiens donc une fréquence de coupure inferieure à -1dB de 203.747MHz
+\begin{center}\includegraphics[scale = 0.25]{pic/freq_coupure_pb.png}\\ \end{center}
+Les paramètres de réflexions (S11 et S22) sont proche l'un de lautre comme on peut le voir sur le
+graphique si dessous
+\begin{center}\includegraphics[scale = 0.25]{pic/reflexion_pb.png}\\ \end{center}
+Cependant on peut remarquer que aux alentours de la fréquence de coupure les deux courbes sont réellement superposé
+On peut aussi remarquer que l'on a une adaptation convenable, puisque nous sommes au maximum à -20dB en
+ce qui concerne la bande passante du filtre.
+\begin{center}\includegraphics[scale = 0.25]{pic/Abaque_pb.png}\\ \end{center}
+Sur ce graphique (Abaque) on peut y trouver l'impédence à la fréquence de coupure du filtre passe bas.
+Qui est de 39,29R-j18,45 pour S11. Et de 35,17R-j12,39 pour S22
+\begin{center}\includegraphics[scale = 0.25]{pic/Abaque_pbS22.png}\\ \end{center}
+Et de 35,17R-j12,39
 
 \section{Passe haut}
 
 \begin{center}\includegraphics[scale = 0.25]{pic/parametre_passe_haut.png}\\ \end{center}
+De la même façon que pour le passe bas, on distingue facilement qu'il sagit d'un passe haut.
+Avec toujours en rouge la transmission (S12) ten bleu l'adaptation (S11). Pour le passe haut 
+on a donc une fréquence de coupure à -1dB de 147.992MHz.
+\begin{center}\includegraphics[scale = 0.25]{pic/freq_coupure_ph.png}\\ \end{center}
+
+\begin{center}\includegraphics[scale = 0.25]{pic/reflexion_ph.png}\\ \end{center}
+Pour le passe haut on peut voir que les deux courbes de réflexions ne sont pas tout à fait 
+identique au niveau de la fréquence de coupure -11,6dB pour S22 et -10.2dB pour S11. Cependant 
+elles se suivent parfaitement et l'adaptation et suffisante puisque l'on reste en dessous des -10dB.
+
+\begin{center}\includegraphics[scale = 0.25]{pic/abaque_phs11.png}\\ \end{center}
+Pour S11 nous avons une impédence de 41,9R+j28,62 à 147,992MHz.
+
+\begin{center}\includegraphics[scale = 0.25]{pic/abaque_phs22.png}\\ \end{center}
+Pour S22 nous avons une impédence de 28,97R+j7,12 à 147,992MHz.
 
 \chapter{Association des filtres}
 \addcontentsline{toc}{chapter}{Association des filtres}
@@ -119,6 +149,18 @@ courants. Dans l'ordre d'apparition, de gauche à droite, nous avons :
 \section{Mesures}
 
 \begin{center}\includegraphics[scale = 0.25]{pic/parametre_passe_bande.png}\\ \end{center}
+Lors de nos relevé la bande passante à -3dB est de 75,143MHz (215,71MHz-140,567MHz). 
+La bande passante à -40dB est de 226,681MHz (91,724MHz-318,405MHz). Lors des mesures pour
+le passe bas et le passe haut nous n'avons décelé aucune ondulation. Ainsi il semble normal 
+de ne toruver aucune ondulation pour le passe bande. Puisqu'il est composé du passe haut et
+du passe bas étudier précédement.
+Les pertes d'insertions sont quant-à-elle faible puisque l'on est à -0.75dB.
+
+
+
+Ce filtre est donc un filtre passe bande butterworth, on peut le remarquer grâce aux pentes 
+qui ne sont pas raide et ene l'absence d'ondulation. 
+
 
 \chapter{Diviseur de puissance}
 \addcontentsline{toc}{chapter}{Diviseur de puissance}
