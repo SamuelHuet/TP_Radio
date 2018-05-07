@@ -68,7 +68,11 @@ différentes :
 	\item \textbf{FULL ONE PORT} ne va calibrer uniquement qu'un seul port, afin de calculer les paramètres
 	      S11 et S21 (ou S22 et S12)
 	\item \textbf{ONE PATH TWO PORT} Ne calibrera que dans le but de mesurer les paramètres S21 et S12.
+<<<<<<< HEAD
 	\item \textbf{TRANS NORM} 
+=======
+	\item \textbf{TRANS NORM}
+>>>>>>> 1c0d497211f963539296884235979cda72b583f5
 	\item \textbf{REFL NORM} 
 	\item \textbf{TRANS AND REFL NORM}
 \end{itemize}
@@ -118,13 +122,13 @@ ce qui concerne la bande passante du filtre.
 Sur ce graphique (Abaque) on peut y trouver l'impédence à la fréquence de coupure du filtre passe bas.
 Qui est de 39,29R-j18,45 pour S11. Et de 35,17R-j12,39 pour S22
 \begin{center}\includegraphics[scale = 0.25]{pic/Abaque_pbS22.png}\\ \end{center}
-Et de 35,17R-j12,39
+
 
 \section{Passe haut}
 
 \begin{center}\includegraphics[scale = 0.25]{pic/parametre_passe_haut.png}\\ \end{center}
 De la même façon que pour le passe bas, on distingue facilement qu'il sagit d'un passe haut.
-Avec toujours en rouge la transmission (S12) ten bleu l'adaptation (S11). Pour le passe haut 
+Avec toujours en rouge la transmission (S12) et en bleu l'adaptation (S11). Pour le passe haut 
 on a donc une fréquence de coupure à -1dB de 147.992MHz.
 \begin{center}\includegraphics[scale = 0.25]{pic/freq_coupure_ph.png}\\ \end{center}
 
@@ -232,15 +236,15 @@ De même que précédement tout port vide sera chargé.
 \subsection{Mesures}
 \begin{center}\includegraphics[scale = 0.25]{pic/cdop.png} \\\end{center}
 Lorsque le système est adapté (courbe bleu a -30dB). On obtient un signal de transmission entre 
-de -60dB entre la sortie et le Cpl (voir schèma). Cette transmission (courbe rouge) se trouve 
+de -60dB entre la sortie et le Cpl (voir schema). Cette transmission (courbe rouge) se trouve 
 toujours en dessous de l'adaptation et influe au même moment. 
 \chapter{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 Lors de ce TP nous avons appris à nous servir de l'analyseur de réseaux. Grâce à cette appareil
-nous avons pû étudier différents filtres, et déterminer leurs types (tchebychev ou butterworth). 
-Puisuqe en effet de part la lecture des paraèmtres S, il est plus facil d'étudier en profondeur les 
+nous avons pus étudier différents filtres, et déterminer leurs types (tchebychev ou butterworth). 
+Puisque en effet de part la lecture des paramètres S, il est plus facile d'étudier en profondeur les 
 caractéristique des objets étudier.
-Nous avons ensuite étudier un diviseur de puissance et un coupleur directif. Afin de déterminer leurs
+Nous avons ensuite étudié un diviseur de puissance et un coupleur directif. Afin de déterminer leurs
 caractéristique.
 A noté que tout ces composants sont passsif on retrouve donc les même signaux sur S12 et S21.
 \end{document}
