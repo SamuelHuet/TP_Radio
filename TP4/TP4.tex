@@ -153,12 +153,35 @@ grandissant peu au fur et à mesure que sa puissance d'entré augmente.
 
 \chapter{Analyseur de réseaux}
 \addcontentsline{toc}{chapter}{Analyseur de réseaux}
-
-
-
+Pour l'analyseur de réseaux le schéma de cablage est le même que précédemment. l'amplificateur
+est dirrectement relier par cable à l'analyseur de réseaux.
+Cependant avant toute chose il faut calibrer l'analyseur de réseaux. Pour cela 
+nous avons procédé comme pour le TP3 en full two port qui est la calibration la plus précise, parmis
+celle proposé.
+\begin{center}\includegraphics[scale = 0.25]{pic/analys-res.png}\\ \end{center}
+Comme on peut le voir en rouge (S21) le gain de l'amplificateur est croissant 
+jusqu'a 3MHz. Après les 3MHz on constate qu'il devient linéaire et reste à 27dB.
+Au même moment l'adaptation (en bleu S11) passe de 0dB à -34dB.
+\begin{center}\includegraphics[scale = 0.25]{pic/isolation.png}\\ \end{center}
+Sur cette courbe on peut voir en rouge l'isolation (S12) et l'adaptation en bleu (S11).
+L'isolation se trouve donc toujours en dessous de l'adaptation avec 20dB de différence au maximum,
+-34dB pour l'adaptation et -54dB pour l'isolation.
+\begin{center}\includegraphics[scale = 0.25]{pic/reflexion.png}\\ \end{center}
+Ci-dessus on observe les paramètres de reflexion (S11 et S22). Les deux courbes se suivent
+parfaitement avec un legé décalage de 0.2dB.
+\begin{center}\includegraphics[scale = 0.25]{pic/entree.png}\\ \end{center}
+En entrée (S11) on observe une impédance de 51.93R+0.11j à la fréquence de 3MHz qui est l'entrée de 
+la zone linéaire de l'amplificateur.
+\begin{center}\includegraphics[scale = 0.25]{pic/sortie.png}\\ \end{center}
+En sortie de l'amplificateur (S22) on observe une impédance de 48.33R+0.79j à une fréquence de 3MHz.
 
 \chapter{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
+Lors de ce dernier TP nous avons mesuré les caractéristiques d'un amplificateur haute
+fréquence. Pour cela nous avons utilisé deux appareilles l'analyseur de spectre et l'analyseur 
+de reseaux. Les tests sur l'analyseur de spectre sont simple à réaliser mais ils sont un peu long.
+Au contraire de l'analyseur de reseaux qui nous donne pleins d'information qu'il faut cependant traiter 
+correctement. 
 
 
 
